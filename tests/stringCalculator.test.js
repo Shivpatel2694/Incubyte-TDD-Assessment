@@ -3,12 +3,16 @@ import { add } from '../src/stringCalculator'
 
 describe('String Calculator - KATA',()=>{
 
-    it('return 0 for empty string',()=>{
+    it("should return 0 for empty string'",()=>{
         expect(add("")).toBe(0)
     })
 
-    it("return the number itself incase of single input",()=>{
+    it("should return the number itself incase of single input",()=>{
         expect(add("1")).toBe(1)
+    })
+
+    it("should return the sum of 2 numbers present in string separated by commas",()=>{
+        expect(add("2,3")).toBe(5);
     })
 
 })
