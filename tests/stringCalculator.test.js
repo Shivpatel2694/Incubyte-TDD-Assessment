@@ -12,7 +12,11 @@ describe('String Calculator - KATA',()=>{
     })
 
     it("should return the sum of 2 numbers present in string separated by commas",()=>{
-        expect(add("2,3")).toBe(5);
+        expect(add("2,3")).toBe(5)
+    })
+
+    it("should return the sum of n numbers present in string separated by commas",()=>{
+        expect(add("2,3,4")).toBe(9)
     })
 
 })
