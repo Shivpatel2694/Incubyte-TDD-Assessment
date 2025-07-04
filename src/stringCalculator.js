@@ -3,9 +3,7 @@ export function add(inputString) {
   if (inputString == "" || inputString == null) return 0;
 
   //handles new line delimiters between numbers
-  inputString= inputString.replace(/\n/g,',')
-  
-  const parts = inputString.split(",");
+  const parts = inputString.split(/[\n,]/);
 
   //handles single input
   if (parts.length == 1) return Number(parts[0].trim());
