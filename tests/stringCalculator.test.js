@@ -8,6 +8,7 @@ describe('String Calculator - KATA',()=>{
     })
 
     it("return the number itself incase of single input",()=>{
-        expect(add(1).toBe(1))
+        expect(add("1")).toBe(1)
     })
+
 })
