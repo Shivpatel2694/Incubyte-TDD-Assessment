@@ -19,4 +19,8 @@ describe('String Calculator - KATA',()=>{
         expect(add("2,3,4")).toBe(9)
     })
 
+    it("should return the sum of number while handling the new lines between numbers",()=>{
+        expect(add("1\n2,3")).toBe(6)
+    })
+
 })
