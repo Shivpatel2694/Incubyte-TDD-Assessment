@@ -2,6 +2,9 @@ export function add(inputString) {
   //handles empty array
   if (inputString == "" || inputString == null) return 0;
 
+  //handles new line delimiters between numbers
+  inputString= inputString.replace(/\n/g,',')
+  
   const parts = inputString.split(",");
 
   //handles single input
