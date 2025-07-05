@@ -40,8 +40,11 @@ describe('String Calculator - KATA',()=>{
         expect(add("2,1001")).toBe(2);
     })
 
-
     it("should return sum while handling delimiter of any length",()=>{
         expect(add("//[***]\n1***2")).toBe(3);
+    })
+
+    it("should return the sum while handling multiple delimiters",()=>{
+        expect(add("//[*][%]\n1*2%3")).toBe(6);
     })
 })
