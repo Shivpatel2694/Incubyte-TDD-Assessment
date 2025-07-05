@@ -13,7 +13,7 @@ export function add(inputString) {
 
     if (matches) {
       const escaped = matches
-        .map((d) => d[1])
+        .map((d) => d.slice(1,-1))
         .map((c) => c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
         .join("|");
       delimiter = new RegExp(escaped);
