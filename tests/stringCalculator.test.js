@@ -47,4 +47,8 @@ describe('String Calculator - KATA',()=>{
     it("should return the sum while handling multiple delimiters",()=>{
         expect(add("//[*][%]\n1*2%3")).toBe(6);
     })
+
+    it("should return the sum while handling multiple delimiters with variable length",()=>{
+        expect(add("//[**][%%]\n1**2%%5").toBe(8))
+    })
 })
