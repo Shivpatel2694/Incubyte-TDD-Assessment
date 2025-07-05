@@ -19,7 +19,13 @@ export function add(inputString) {
   //handles any amount of numbers
     let sum = 0;
     for (let i = 0; i < parts.length; i++) {
-      sum += Number(parts[i].trim());
+    
+      let num = Number(parts[i].trim());
+
+      if(Number(parts[i]) < 0)
+        throw new Error(`Negative numbers are not allowed ${num}`);
+
+      sum+= num;
     }
     return sum;
   }

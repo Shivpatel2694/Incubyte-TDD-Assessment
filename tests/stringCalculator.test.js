@@ -32,7 +32,7 @@ describe('String Calculator - KATA',()=>{
     })
 
     it("should throw esception when negative numbers are encountered",()=>{
-        expect(add("//*\n1*-1")).toThrow("negative numbers are not allowed 1");
+        expect(() => add("1,-2")).toThrow("Negative numbers are not allowed -2");
     })
 
 })
