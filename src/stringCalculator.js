@@ -12,6 +12,8 @@ export function add(inputString) {
     inputString = inputString.slice(4);
   }
 
+  //custom delimitor used to split
+
    const parts = inputString.split(new RegExp(delimiter));
 
   //handles any amount of numbers
