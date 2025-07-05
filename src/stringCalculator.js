@@ -18,15 +18,19 @@ export function add(inputString) {
 
   //handles any amount of numbers
     let sum = 0;
+    let negatives =[];
     for (let i = 0; i < parts.length; i++) {
     
       let num = Number(parts[i].trim());
 
-      if(Number(parts[i]) < 0)
-        throw new Error(`Negative numbers are not allowed ${num}`);
+      if(num < 0)
+        negatives.push(num);
 
       sum+= num;
     }
+
+    if(negatives.length > 0)
+        throw new Error(`Negative numbers are not allowed: ${negatives.join(",")}`);
     return sum;
   }
 
