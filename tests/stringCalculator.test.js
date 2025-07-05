@@ -23,11 +23,12 @@ describe('String Calculator - KATA',()=>{
         expect(add("1,2\n,3")).toBe(6)
     })
 
-    it("should return the sum while handling the custom  ;",()=>{
+    //delimiters of format '//[delimiter]\n'
+    it("should return the sum while handling the custom  ; delimiter ",()=>{
         expect(add("//;\n1;2")).toBe(3);
     })
 
-    it("should return the sum while handling the custom  |",()=>{
+    it("should return the sum while handling the custom  | delimiter",()=>{
         expect(add("//|\n1|2")).toBe(3);
     })
 
@@ -37,5 +38,10 @@ describe('String Calculator - KATA',()=>{
 
     it("should ignore numbers whose values are more than 1000",()=>{
         expect(add("2,1001")).toBe(2);
+    })
+
+
+    it("should return sum while handling delimiter of any length",()=>{
+        expect(add("//[***]\n1***2")).toBe(3);
     })
 })
