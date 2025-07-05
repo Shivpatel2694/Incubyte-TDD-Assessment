@@ -26,6 +26,9 @@ export function add(inputString) {
       if(num < 0)
         negatives.push(num);
 
+      if(num > 1000)
+        continue;
+
       sum+= num;
     }
 
