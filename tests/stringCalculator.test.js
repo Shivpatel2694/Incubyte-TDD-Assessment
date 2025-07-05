@@ -35,4 +35,7 @@ describe('String Calculator - KATA',()=>{
         expect(() => add("//|\n1|-2|5|6|-4")).toThrow("Negative numbers are not allowed: -2,-4");
     })
 
+    it("should ignore numbers whose values are more than 1000",()=>{
+        expect(add("2,1001")).toBe(2);
+    })
 })
