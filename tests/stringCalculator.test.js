@@ -23,8 +23,12 @@ describe('String Calculator - KATA',()=>{
         expect(add("1,2\n,3")).toBe(6)
     })
 
-    it("should return the sum while handling the custom delimiters",()=>{
+    it("should return the sum while handling the custom  ;",()=>{
         expect(add("//;\n1;2")).toBe(3);
+    })
+
+    it("should return the sum while handling the custom  |",()=>{
+        expect(add("//|\n1|2")).toBe(3);
     })
 
 })

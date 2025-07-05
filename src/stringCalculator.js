@@ -7,14 +7,12 @@ export function add(inputString) {
   //handleling custom delimiters
   if (inputString.startsWith('//')) {
     const customDelimiter = inputString[2]; 
-    delimiter = new RegExp(customDelimiter); 
+    const escaped = customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    delimiter = new RegExp(escaped);
     inputString = inputString.slice(4);
   }
 
    const parts = inputString.split(new RegExp(delimiter));
-
-  //handles single input
-  if (parts.length == 1) return Number(parts[0].trim());
 
   //handles any amount of numbers
     let sum = 0;
