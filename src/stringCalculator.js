@@ -10,15 +10,11 @@ export function add(inputString) {
     const delimiterSection = inputString.slice(2, delimiterSectionEnd);
     
     const match = delimiterSection.match(/^\[(.+)\]$/);
-    if(match){
-        const customDelimiter = match[1];
-      const escaped = customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      delimiter = new RegExp(escaped);
-    }
-    else{
-        const escaped = delimiterSection.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        delimiter = new RegExp(escaped);
-    }
+
+    const customDelimiter = match ? match[1] : delimiterSection;
+    const escaped = customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    delimiter = new RegExp(escaped);
+    
      inputString = inputString.slice(delimiterSectionEnd + 1);
   }
 
