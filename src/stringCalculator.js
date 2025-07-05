@@ -6,15 +6,25 @@ export function add(inputString) {
   
   //handleling custom delimiters
   if (inputString.startsWith('//')) {
-    const customDelimiter = inputString[2]; 
-    const escaped = customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    delimiter = new RegExp(escaped);
-    inputString = inputString.slice(4);
+    let delimiterSectionEnd = inputString.indexOf("\n");
+    const delimiterSection = inputString.slice(2, delimiterSectionEnd);
+    
+    const match = delimiterSection.match(/^\[(.+)\]$/);
+    if(match){
+        const customDelimiter = match[1];
+      const escaped = customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      delimiter = new RegExp(escaped);
+    }
+    else{
+        const escaped = delimiterSection.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        delimiter = new RegExp(escaped);
+    }
+     inputString = inputString.slice(delimiterSectionEnd + 1);
   }
 
   //custom delimitor used to split
 
-   const parts = inputString.split(new RegExp(delimiter));
+   const parts = inputString.split(delimiter);
 
   //handles any amount of numbers
     let sum = 0;
