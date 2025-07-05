@@ -13,7 +13,7 @@ export function add(inputString) {
 
     if (matches) {
       const escaped = matches
-        .map((d) => d.slice(1, -1))
+        .map((d) => d[1])
         .map((c) => c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
         .join("|");
       delimiter = new RegExp(escaped);
@@ -26,23 +26,20 @@ export function add(inputString) {
   }
 
   //custom delimitor used to split
-
   const parts = inputString.split(delimiter);
 
   //handles any amount of numbers
   let sum = 0;
-  let negatives = [];
+  let negatives = parts.filter(n=> n< 0);
+
+  if(negatives.length)
+    throw new Error(`Negative numbers are not allowed: ${negatives.join(",")}`);
+
   for (let i = 0; i < parts.length; i++) {
     let num = Number(parts[i].trim());
-
-    if (num < 0) negatives.push(num);
-
     if (num > 1000) continue;
-
     sum += num;
   }
-
-  if (negatives.length > 0)
-    throw new Error(`Negative numbers are not allowed: ${negatives.join(",")}`);
+    
   return sum;
 }
